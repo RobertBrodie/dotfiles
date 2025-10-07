@@ -58,8 +58,16 @@ set wildmenu
 " Display command line’s tab complete options as a menu.
 set tabpagemax=50
 " Maximum number of tab pages that can be opened from the command line.
-" set cursorline
+set cursorline
 " Highlight the line currently under cursor.
+set cursorlineopt=number
+" Highlight the current line number
+set cursorcolumn
+" Hightlight the current column
+set colorcolumn=81
+" Highlight column 81 in Red
+hi CursorColumn ctermbg=5
+" Hightlight column in Cyan
 set number
 " Show line numbers on the sidebar.
 set noerrorbells
