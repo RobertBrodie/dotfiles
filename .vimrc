@@ -20,8 +20,6 @@ set smarttab
 " Insert tabstop number of spaces when the tab key is pressed.
 set tabstop=4
 " Indent using four spaces.
-set hlsearch
-" Enable search highlighting.
 set ignorecase
 " Ignore case when searching.
 set incsearch
@@ -115,6 +113,7 @@ nnoremap <C-H> <C-W><C-H>
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+set foldcolumn=5
 " Enable folding with the spacebar
 nnoremap <space> za
 let python_highlight_all=1
