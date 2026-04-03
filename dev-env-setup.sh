@@ -14,6 +14,7 @@ Tools configured:
   symlinks      Creates ~/.tmux.conf, ~/.vimrc and ~/.zshrc symlinks to this repo
   tmux          Installs TPM (Tmux Plugin Manager) and declared plugins
   vim           Installs Vundle and declared plugins (including NERDTree)
+  zsh           Installs oh-my-zsh custom plugins
 EOF
 }
 
@@ -93,7 +94,42 @@ else
     git clone "$VUNDLE_REPO" "$VUNDLE_DIR"
 fi
 
-echo "==> Installing Vim plugins via Vundle..."
-vim -E -s -u "$HOME/.vimrc" +PluginInstall +qall || true
+echo "==> Installing Vim plugins..."
+
+clone_vim_plugin() {
+    local repo="$1" name="${1##*/}" dst="$HOME/.vim/bundle/$name"
+    if [ -d "$dst/.git" ]; then
+        echo "    $name already installed, updating..."
+        git -C "$dst" pull --ff-only
+    else
+        echo "    Cloning $name..."
+        git clone "https://github.com/${repo}.git" "$dst"
+    fi
+}
+
+clone_vim_plugin preservim/nerdtree
 
 echo "==> Done. Vim plugins installed successfully."
+
+# --- ZSH: oh-my-zsh custom plugins ---
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+echo "==> Installing oh-my-zsh custom plugins"
+
+clone_zsh_plugin() {
+    local repo="$1" name="${1##*/}" dst="$ZSH_CUSTOM/plugins/$name"
+    if [ -d "$dst/.git" ]; then
+        echo "    $name already installed, updating..."
+        git -C "$dst" pull --ff-only
+    else
+        echo "    Cloning $name..."
+        git clone "https://github.com/${repo}.git" "$dst"
+    fi
+}
+
+clone_zsh_plugin zsh-users/zsh-autosuggestions
+clone_zsh_plugin zsh-users/zsh-syntax-highlighting
+clone_zsh_plugin MichaelAquilina/zsh-you-should-use
+clone_zsh_plugin fdellwing/zsh-bat
+
+echo "==> Done. ZSH plugins installed successfully."
