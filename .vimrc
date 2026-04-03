@@ -103,6 +103,22 @@ set showmatch
 set nocompatible
 filetype off
 
+"--- Vundle Plugin Manager ---"
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
+
+call vundle#end()
+filetype plugin indent on
+
+"--- NERDTree ---"
+" Toggle NERDTree with Ctrl+n
+nnoremap <C-n> :NERDTreeToggle<CR>
+" Close Vim if NERDTree is the only window remaining
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 set splitbelow
 set splitright
 "split navigations
