@@ -81,7 +81,7 @@ The setup script will:
 |---|---|
 | [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | Fish-style command suggestions |
 | [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | Command syntax highlighting |
-| [you-should-use](https://github.com/MichaelAquilina/zsh-you-should-use) | Reminds you to use existing aliases |
+| [zsh-you-should-use](https://github.com/MichaelAquilina/zsh-you-should-use) | Reminds you to use existing aliases |
 | [zsh-bat](https://github.com/fdellwing/zsh-bat) | `bat` integration as a `cat` replacement |
 
 ## Manual Steps

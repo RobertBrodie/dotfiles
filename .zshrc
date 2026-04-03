@@ -75,7 +75,7 @@ plugins=(
     z
     zsh-autosuggestions
     zsh-syntax-highlighting
-    you-should-use
+    zsh-you-should-use
     zsh-bat
 )
 
