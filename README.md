@@ -72,6 +72,9 @@ The setup script will:
 | `prefix + h/j/k/l` | Navigate panes |
 | `prefix + c` | New named window |
 
+**Known issues / notes:**
+- `allow-passthrough on` is set to forward OSC sequences (e.g. OSC 11 background colour queries from ZSH) to the outer terminal. Requires tmux 3.3+. Without this, raw escape sequences such as `^[]11;rgb:0000/0000/0000^[\` leak into the pane output on shell startup.
+
 ## ZSH
 
 **Framework:** [Oh My Zsh](https://ohmyz.sh/) with the `bira` theme
