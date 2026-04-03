@@ -97,7 +97,9 @@ fi
 echo "==> Installing Vim plugins..."
 
 clone_vim_plugin() {
-    local repo="$1" name="${1##*/}" dst="$HOME/.vim/bundle/$name"
+    local repo="$1"
+    local name="${1##*/}"
+    local dst="$HOME/.vim/bundle/$name"
     if [ -d "$dst/.git" ]; then
         echo "    $name already installed, updating..."
         git -C "$dst" pull --ff-only
@@ -117,7 +119,9 @@ ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 echo "==> Installing oh-my-zsh custom plugins"
 
 clone_zsh_plugin() {
-    local repo="$1" name="${1##*/}" dst="$ZSH_CUSTOM/plugins/$name"
+    local repo="$1"
+    local name="${1##*/}"
+    local dst="$ZSH_CUSTOM/plugins/$name"
     if [ -d "$dst/.git" ]; then
         echo "    $name already installed, updating..."
         git -C "$dst" pull --ff-only
